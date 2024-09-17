@@ -4,8 +4,6 @@ import seaborn as sns
 from matplotlib import pyplot as plt
 from tqdm import tqdm
 
-# Reset the seed here as it was set to 1 for generating the data
-np.random.seed(None)
 
 
 def bootstrap_analysis(sessions, n_iterations=1000, sample_size=1000):
@@ -15,6 +13,9 @@ def bootstrap_analysis(sessions, n_iterations=1000, sample_size=1000):
     # and positive returns across foreign sessions
     # We will plot the distribution of Sharpe Ratio of the returns by bucket across each ccy
     # We will record the % of negative SRs/positive SRs over our sampling experiments
+
+    # Reset the seed here as it was set to 1 for generating the data
+    np.random.seed(None)
 
     session_list = list(sessions.keys())
     ccy_list = sessions['Domestic'].columns
